@@ -12,7 +12,12 @@
             padding: 10px;
         }
     
-    
+        p1{
+            font-size: 25px;
+            color: dimgrey;
+            
+            
+        }
     </style>
     
 </head>
@@ -20,7 +25,7 @@
     
 <div style="overflow:auto; box-sizing: border-box;">
     
-    <div style="text-align: center; background-color: dimgray; width:50%; height: 200px; float: left;">
+    <div style="text-align: center; background-color: dimgray; width: 50%; height: 200px; float: left;">
     
     <h1>Paris</h1>
         <p>Paris is the capital and most populous city of France, with an area of 105 square kilometres (41 square miles) and a population of 2,206,488. With 200,000 inhabitants in 1328, Paris, then already the capital of France, was the most populous city of Europe. By comparison, London in 1300 had 80,000 inhabitants.</p>
@@ -43,53 +48,69 @@
         <p>Warsaw – the capital of Poland. This amazing city is full of contrasts, question marks and surprises. It will excite and inspire you.</p>
     
 </div>
-    <br><br><br><br><br><br><br><br><br>
-    
-    
-<p><br><h1>Podaj imię</h1></p> 
+<br> 
+    <button type="button" onclick="Fun()" > Data </button>
+     <button type="button" onclick="Fun1()">Godzina</button>
+    <br>
+    <p1 id="data">Data</p1> <br>
+    <p1 id="hour">Godzina</p1>
+  
+<p><h1>Podaj imię</h1></p> 
   First name: <input id="name" type="text" ><br>
-    Last name: <input id="name" type="text" ><br>
 <!--  <button type="button" onclick="myFunktion()"> submit</button> -->
+
 <br>
-<br>
-    <h1>Podaj liczbę od 0 do 100</h1>
+    <h1>Podaj liczbę od 0 do 1000</h1>
     <h2>Masz 10 prób</h2>
 <input id = "los" type = "number" value="0"><br>
     <button type="button" onclick="myFunkcion()">submit</button>
 <br>
 <p id="count"></p>
-<br>
-<p id="dem"></p>
+
+<p1 id="dem"></p1>
 
 <script>
     var fname=' ';
     var ran;
     var counter = 0;
     ran = Math.floor(Math.random() * 1001);
-    function myFunkcion(){   
-    counter ++;
-    var los;   
+
     
-    fname = document.getElementById("name").value;
-     document.getElementById("count").innerHTML= fname + ' próba: ' + counter;     
-    los = document.getElementById("los").value;
+        function Fun(){
+            var d = new Date();
+            document.getElementById("data").innerHTML = d.toDateString();
+        }
+    
+        function Fun1(){
+            var d = new Date();
+            document.getElementById("hour").innerHTML = d.toLocaleTimeString();
+        }
+    
+    
+        function myFunkcion(){   
+            counter ++;
+            var los;   
+    
+            fname = document.getElementById("name").value;
+            document.getElementById("count").innerHTML= fname + ' próba: ' + counter;     
+            los = document.getElementById("los").value;
      
-    if(counter>10){
-        document.getElementById("dem").style.color="red";
-        document.getElementById("dem").style.fontSize="65px";
-        document.getElementById("dem").innerHTML=fname + " Jestes do dupy, nie trafiłeś za " + counter + " razem :)";     
-    }else{
-    if(los>ran){
-        document.getElementById("dem").innerHTML= 'za duża :pp';
-    } else if(los<ran){   
-    document.getElementById("dem").innerHTML= 'za mała "PP';        
-    } else{
-        document.getElementById("dem").style.color="red";
-        document.getElementById("dem").style.fontSize="65px";
-        document.getElementById("dem").innerHTML= fname + " TRAFIŁES !!!!!! za " + counter + " razem :)";   
-    }
-    }
-}
+            if(counter>10){
+                document.getElementById("dem").style.color="red";
+                document.getElementById("dem").style.fontSize="65px";
+                document.getElementById("dem").innerHTML=fname + " Jestes do dupy, nie trafiłeś za " + counter + " razem :)";     
+            }else{
+                if(los>ran){
+                    document.getElementById("dem").innerHTML= 'za duża :pp';
+                } else if(los<ran){   
+                    document.getElementById("dem").innerHTML= 'za mała "PP';        
+                } else{
+                    document.getElementById("dem").style.color="red";
+                    document.getElementById("dem").style.fontSize="65px";
+                    document.getElementById("dem").innerHTML= fname + " TRAFIŁES !!!!!! za " + counter + " razem :)";   
+                }
+            }       
+        }
     
 </script>
 </body>
