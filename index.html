@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="UTF-8"/>    
+<body>
+
+<p><br><h1>Podaj imię</h1></p> 
+
+  First name: <input id="name" type="text" ><br>
+<!--  <button type="button" onclick="myFunktion()"> submit</button> -->
+<br>
+<br>
+    <h1>Podaj liczbę od 0 do 100</h1>
+    <h2>Masz 10 prób</h2>
+<input id = "los" type = "number" value="0"><br>
+    <button type="button" onclick="myFunkcion()">submit</button>
+<br>
+<p id="count"></p>
+<br>
+<p id="dem"></p>
+
+<script>
+    var fname=' ';
+    var ran;
+    var counter = 0;
+    ran = Math.floor(Math.random() * 101);
+function myFunkcion(){   
+    counter ++;
+    var los;   
+    
+    fname = document.getElementById("name").value;
+     document.getElementById("count").innerHTML= fname + ' próba: ' + counter;     
+    los = document.getElementById("los").value;
+     
+    if(counter>10){
+        document.getElementById("dem").style.color="red";
+        document.getElementById("dem").style.fontSize="65px";
+        document.getElementById("dem").innerHTML=fname + " Jestes do dupy, nie trafiłeś za " + counter + " razem :)";     
+    }else{
+    if(los>ran){
+        document.getElementById("dem").innerHTML= 'za duża :pp';
+    } else if(los<ran){   
+    document.getElementById("dem").innerHTML= 'za mała "PP';        
+    } else{
+        document.getElementById("dem").style.color="red";
+        document.getElementById("dem").style.fontSize="65px";
+        document.getElementById("dem").innerHTML= fname + " TRAFIŁES !!!!!! za " + counter + " razem :)";   
+    }
+    }
+}
+    
+</script>
+</body>
+</html>
+  
