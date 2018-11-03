@@ -42,7 +42,7 @@
 </div>
     
     
-<div style="overflow: auto; text-align: center; background-color: gray; width: auto;  height: 200px; float:none;">
+<div onmouseover="this.style.backgroundColor='red'" style="overflow: auto; text-align: center; background-color: gray; width: auto;  height: 200px; float:none;">
     
     <h1>Warsaw</h1>
         <p>Warsaw – the capital of Poland. This amazing city is full of contrasts, question marks and surprises. It will excite and inspire you.</p>
@@ -53,9 +53,12 @@
      <button type="button" onclick="Fun1()">Godzina</button>
     <button type="button" onclick="document.getElementById('data').style.fontSize='50px'">Rozmiar daty</button>
     <button type="button" onclick="document.getElementById('hour').style.fontSize='50px'">Rozmiar czasu</button>
+    <button type="button" target="_blanc" onclick="document.write('Jakiś tekst')">Click it</button>
             <br>
     <p1 id="data">Data</p1> <br>
     <p1 id="hour">Godzina</p1>
+    
+    <p id="demo"></p>
   
 <p><h1>Podaj imię</h1></p> 
   First name: <input id="name" type="text" ><br>
@@ -72,10 +75,21 @@
 <p1 id="dem"></p1>
 
 <script>
+    var person = {
+    firstName : "John",
+    lastName  : "Doe",
+    age       : 50,
+    eyeColor  : "blue"
+};
+
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+    </script>
+     <script>   
     var fname=' ';
     var ran;
-    var counter = 0;
-    ran = Math.floor(Math.random()* 1001);
+    var counter = 1;
+        ran = Math.floor(Math.random()* 1001);
         function Fun(){
             var d = new Date();
             document.getElementById("data").innerHTML = d.toDateString();
@@ -88,17 +102,18 @@
     
     
         function myFunkcion(){   
-            counter ++;
+            
             var los;   
-    
+            
             fname = document.getElementById("name").value;
             document.getElementById("count").innerHTML= fname + ' próba: ' + counter;     
             los = document.getElementById("los").value;
      
-            if(counter>10){
+            if(counter>=10){
                 document.getElementById("dem").style.color="red";
                 document.getElementById("dem").style.fontSize="65px";
-                document.getElementById("dem").innerHTML=fname + " Jestes do dupy, nie trafiłeś za " + counter + " razem :)";     
+                document.getElementById("dem").innerHTML= fname + " przykro mi, przegrałeś!!!  :)<br> a losowana liczba to: " + ran ;  
+                
             }else{
                 if(los>ran){
                     document.getElementById("dem").innerHTML= 'za duża :pp';
@@ -107,9 +122,11 @@
                 } else{
                     document.getElementById("dem").style.color="red";
                     document.getElementById("dem").style.fontSize="65px";
-                    document.getElementById("dem").innerHTML= fname + " TRAFIŁES !!!!!! za " + counter + " razem :)";   
+                    document.getElementById("dem").innerHTML= fname + " TRAFIŁES !!!!!! za " + counter + " razem :) <br> Spróbuj ponownie !!!!!! ";   
                 }
-            }       
+            }
+            counter ++;
+            
         }
     
 </script>
