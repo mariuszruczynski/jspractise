@@ -51,7 +51,9 @@
 <br> 
     <button type="button" onclick="Fun()" > Data </button>
      <button type="button" onclick="Fun1()">Godzina</button>
-    <br>
+    <button type="button" onclick="document.getElementById('data').style.fontSize='50px'">Rozmiar daty</button>
+    <button type="button" onclick="document.getElementById('hour').style.fontSize='50px'">Rozmiar czasu</button>
+            <br>
     <p1 id="data">Data</p1> <br>
     <p1 id="hour">Godzina</p1>
   
@@ -73,9 +75,7 @@
     var fname=' ';
     var ran;
     var counter = 0;
-    ran = Math.floor(Math.random() * 1001);
-
-    
+    ran = Math.floor(Math.random()* 1001);
         function Fun(){
             var d = new Date();
             document.getElementById("data").innerHTML = d.toDateString();
